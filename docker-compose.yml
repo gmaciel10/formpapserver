@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+    database:
+        #ESSE É O NOME DO SERVICE QUE DEVE ESTAR NO ARQUIVO DE CRIAÇÃO DE CONEXÃO
+        image: mariadb
+        container_name: dabase_formpap
+        restart: always
+        ports:
+            - 3306:3306
+        environment:
+            - MYSQL_USER=rocketseat
+            - MYSQL_PASSWORD=rocketseat
+            - MYSQL_ROOT_PASSWORD=rocketseat
+            - MYSQL_DATABASE=formPAP
+        volumes:
+            - mdbdata:/data/mariadb
+
+    app:
+        build: .
+        container_name: backend_formPAP
+        restart: always
+        ports:
+            - 3333:3333
+            - 9229:9229 #Você pode inserir essa porta tbm pra poder usar o debug
+        volumes:
+            - .:/usr/app
+        links:
+            - database
+        depends_on:
+            - database
+
+volumes:
+    mdbdata:
+        driver: local

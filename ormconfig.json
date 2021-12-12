@@ -1,0 +1,13 @@
+{
+"type": "mariadb",
+  "port": 3306,
+  "host": "localhost",
+  "username": "rocketseat",
+  "password": "rocketseat",
+  "database": "formPAP",
+  "migrations":["./src/database/migrations/*.ts"],
+  "entities": ["./src/modules/**/entities/*.ts"],
+  "cli":{
+      "migrationsDir": "./src/database/migrations"
+  }
+}
