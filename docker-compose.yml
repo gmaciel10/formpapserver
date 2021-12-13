@@ -4,7 +4,7 @@ services:
     database:
         #ESSE É O NOME DO SERVICE QUE DEVE ESTAR NO ARQUIVO DE CRIAÇÃO DE CONEXÃO
         image: mariadb
-        container_name: dabase_formpap
+        container_name: dabase_formpap_teste
         restart: always
         ports:
             - 3306:3306
@@ -18,7 +18,7 @@ services:
 
     app:
         build: .
-        container_name: backend_formPAP
+        container_name: backend_formPAP_teste
         restart: always
         ports:
             - 3333:3333

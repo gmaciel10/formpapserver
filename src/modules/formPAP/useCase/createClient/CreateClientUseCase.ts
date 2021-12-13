@@ -25,8 +25,8 @@ class CreateClientUseCase {
         frontDocument,
         backDocument,
         selfieDocument,
+        fkIdAddress,
     }: ICreateClientDTO): Promise<void> {
-        const fkIdAddress = await this.addressRepository.listId();
         this.clientRepository.create({
             name,
             document,

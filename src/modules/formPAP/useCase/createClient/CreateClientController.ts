@@ -16,6 +16,7 @@ class CreateClientController {
             frontDocument,
             backDocument,
             selfieDocument,
+            fkIdAddress,
         } = request.body;
         createClientUseCase.execute({
             name,
@@ -27,6 +28,7 @@ class CreateClientController {
             frontDocument,
             backDocument,
             selfieDocument,
+            fkIdAddress,
         });
 
         return response.status(201).send();

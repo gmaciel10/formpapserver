@@ -17,7 +17,7 @@ class AddressRepository implements IAddressRepository {
         complement,
         condominium,
         fkIdCity,
-    }: ICreateAddressDTO): Promise<void> {
+    }: ICreateAddressDTO): Promise<number> {
         const addressR = this.repository.create({
             postalCode,
             district,
@@ -28,6 +28,8 @@ class AddressRepository implements IAddressRepository {
             fkIdCity,
         });
         await this.repository.save(addressR);
+        const fkIdAddress = await this.repository.getId(addressR);
+        return fkIdAddress;
     }
 
     async list(): Promise<Address[]> {
