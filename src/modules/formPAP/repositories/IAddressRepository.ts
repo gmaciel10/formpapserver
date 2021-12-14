@@ -10,7 +10,7 @@ interface IAddressRepository {
         complement,
         condominium,
         fkIdCity,
-    }: ICreateAddressDTO): Promise<number>;
+    }: ICreateAddressDTO): Promise<Address>;
     list(): Promise<Address[]>;
     listId(): Promise<number>;
 }

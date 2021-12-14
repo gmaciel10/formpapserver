@@ -16,7 +16,6 @@ class CreateAddressController {
         } = request.body;
 
         const createAddressUseCase = container.resolve(CreateAddressUseCase);
-        console.log(idCity);
         const address = await createAddressUseCase.execute({
             postalCode,
             district,
@@ -26,7 +25,7 @@ class CreateAddressController {
             condominium,
             fkIdCity: idCity,
         });
-        return response.status(201).send();
+        return response.status(201).json(address);
     }
 }
 

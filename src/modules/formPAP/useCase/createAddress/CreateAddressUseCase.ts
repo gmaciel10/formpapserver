@@ -1,6 +1,7 @@
 import { response } from "express";
 import { inject, injectable } from "tsyringe";
 
+import { Address } from "../../entities/Address";
 import {
     IAddressRepository,
     ICreateAddressDTO,
@@ -22,7 +23,7 @@ class CreateAddressUseCase {
         complement,
         condominium,
         fkIdCity,
-    }: ICreateAddressDTO): Promise<void> {
+    }: ICreateAddressDTO): Promise<Address> {
         const address = await this.addressRepository.create({
             postalCode,
             district,
@@ -32,6 +33,7 @@ class CreateAddressUseCase {
             condominium,
             fkIdCity,
         });
+        return address;
     }
 }
 

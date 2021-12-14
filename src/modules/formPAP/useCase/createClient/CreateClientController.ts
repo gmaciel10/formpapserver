@@ -16,8 +16,9 @@ class CreateClientController {
             frontDocument,
             backDocument,
             selfieDocument,
-            fkIdAddress,
+            idAddress,
         } = request.body;
+        console.log(idAddress);
         createClientUseCase.execute({
             name,
             document,
@@ -28,7 +29,7 @@ class CreateClientController {
             frontDocument,
             backDocument,
             selfieDocument,
-            fkIdAddress,
+            fkIdAddress: idAddress,
         });
 
         return response.status(201).send();
