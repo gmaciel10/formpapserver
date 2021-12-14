@@ -12,11 +12,11 @@ class CreateAddressController {
             number,
             complement,
             condominium,
-            fkIdCity,
+            idCity,
         } = request.body;
 
         const createAddressUseCase = container.resolve(CreateAddressUseCase);
-
+        console.log(idCity);
         const address = await createAddressUseCase.execute({
             postalCode,
             district,
@@ -24,7 +24,7 @@ class CreateAddressController {
             number,
             complement,
             condominium,
-            fkIdCity,
+            fkIdCity: idCity,
         });
         return response.status(201).send();
     }

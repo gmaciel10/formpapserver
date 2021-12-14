@@ -1,10 +1,11 @@
+import { response } from "express";
 import { inject, injectable } from "tsyringe";
 
-import { Address } from "../../entities/Address";
 import {
     IAddressRepository,
     ICreateAddressDTO,
 } from "../../repositories/IAddressRepository";
+import { ICityRepository } from "../../repositories/ICityRepository";
 
 @injectable()
 class CreateAddressUseCase {
